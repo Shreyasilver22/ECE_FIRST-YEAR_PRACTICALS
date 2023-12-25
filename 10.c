@@ -3,25 +3,31 @@ a. Using a third variable
 b. Without using a third variable
 */
 
-#include<stdio.h>
-void swap(float x, float y);
-int main()
-{
-    float a,b;
-    printf("enter value of a and b");
-    scanf("%d%d",&a,&b);
-    swap(a,b);
-    
+#include <stdio.h>
+
+void swapWithVariable(int *x, int *y) {
+    int z;
+    temp = *x;
+    *x = *y;
+    *y = z;
+}
+void swapWithoutVariable(int *x, int *y) {
+    *x =*x + *y;
+    *y =*x - *y;
+    *x =*x - *y;
 }
 
-void swap(float x, float y)
+int main()
 {
-    float c;
-    c=x;
-    x=y;
-    y=c;
+/*swap without third variable*/
+int a = 5, b = 10;
+printf("Before swapping: a = %d, b = %d\n", a, b);
+swapWithVariable(&a, &b);
+printf("After swapping using a third variable: a = %d, b = %d\n", a, b);
 
-    printf("value of a=%d",x);
-    printf("value of b=%d",y);
-
+/*swap without third variable*/
+printf("Before swapping: a = %d, b = %d\n", a, b);
+swapWithoutVariable(&a, &b);
+printf("After swapping without using a third variable: a = %d, b = %d\n", a, b);
+return 0;
 }
