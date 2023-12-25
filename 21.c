@@ -11,6 +11,16 @@ int main()
 {
     int i=3,*j,**k;
     j=&i;
-    j=j+1;
-    printf("increment of pointer=%d",&j);
+    printf("address of i=%x\n",j);
+    i++;
+    printf("address after incrrementing i=%x\n",j);
+    i--;
+    printf("address after decrementing:%x\n",j);
+    i=i+2;
+    printf("address after adding integer:%x\n",j);
+    i=i-2;
+    printf("address after subtracting integer:%x\n",j);
+    int x = i - j;
+    printf("Address after subtracting two pointers(i - j): %x\n", x);
+
 }
